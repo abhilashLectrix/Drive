@@ -1,0 +1,736 @@
+connectors:
+  
+  Battery1:
+    type: Battery+BMS
+    subtype: MALE
+    pinlabels: [B+, B-, CANH, CANL]
+ 
+  Battery2:
+    type: Battery+BMS
+    subtype: MALE
+    pinlabels: [B+, B-, CANH, CANL]
+
+  Battery3:
+    type: Battery+BMS
+    subtype: MALE
+    pinlabels: [B+, B-, CANH, CANL]
+
+  Motor controller:
+    type: 40-90V
+    subtype: Unit
+    pinlabels: [TEMP(1), SHEILD GND(2), 5V_EN(3), PARK(4), THROTTLE(5), KSI(6)_48V, CAN L(7), CAN H(8), Z-(9), A-(10), B-(11), ISD(12), SIDESTAND(13), Low gear(14), A_SIGNAL RESERVED(15), Z ENCODER(16), A ENCODER(17), B ENCODER(18), GND ENC/THROTTLE(19), High Gear(20), Reverse(21), Break(22), -48V GND(23), U, V, W, BATTERY+_48V, BATTERY -]
+        
+  Motor:
+    type: PMSM
+    subtype: unit
+    pinlabels: [ENC+(1), ENC-(2), TEMP(3), SHIELD(4), OUTPUT U(1), OUTPUT V(2), OUTPUT W(3), U, V, W] 
+
+  FuseHV1:
+    type: Bolt
+    subtype: HV Line
+    pinlabels: [HV IN+, HV OUT]
+
+  Contactor:
+    type: DC
+    subtype: 900VDC 200A continuous
+    pinlabels: [HV+, OUT, V+, V-]
+
+  DC-DC converter:
+    type: Unit
+    subtype: FEMALE MALE
+    pinlabels: [48_IN+, 48_GND, 12Vout+, 12Vout-]
+
+  Precharge Relay:
+    type: SPST
+    subtype: Bolt chassis
+    pinlabels: [NC, Nopen, LV+, LV-]
+   
+  Resistor:
+    type: precharge 25ohm
+    subtype: Bolt chassis
+    pinlabels: [IN, OUT]  
+
+  Throttle:
+    type: 3PIN
+    subtype: Male
+    pinlabels: [+5V, SIGNAL, GND]
+
+  VCU:                          
+    type: PCB board
+    subtype: ESP32
+    pinlabels: [12V_IN, GND, GPIO_Throttle, CANL, CANH, 12V DRIVER, CTS, RYS, AUXS, DIM/DIP, IRS, ILS, MC, RS, MS1, MS2, LG, HG, IMU_IN, IMU_OUT]
+
+  Switch1_Precharge_Contactor: 
+    type: simple
+    subtype: Mechanical
+    pinlabels: [INP1, V+, INP2]
+ 
+  Lock and Key: 
+    type: simple
+    subtype: Mechanical
+    pinlabels: [IN, OUT]
+
+  Mode Switch:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [A, B, C, D, E, F]
+
+  Switch_Reverse:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [IN, OUT]
+
+  Switch_Park:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [IN, OUT]
+
+  Ksi relay:
+    type: simple
+    subtype: Electrical
+    pinlabels: [V+, V-, NOPEN, NC]
+  
+  Left Brake: 
+    type: simple
+    subtype: Mechanical
+    pinlabels: [IN, OUT]
+
+  Right Brake:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [IN, OUT]
+  
+  Horn Relay: 
+    type: simple
+    subtype: Mechanical
+    pinlabels: [Nopen, NC, V+, V-]
+
+  Horn Switch: 
+    type: simple
+    subtype: Mechanical
+    pinlabels: [IN, OUT]
+
+  Horn: 
+    type: simple
+    subtype: Mechanical
+    pinlabels: [T1,T2]
+  
+  12V to 5V converter Board:
+    type: simple
+    subtype: PCB board
+    pinlabels: [IN+, IN-, OUT+, OUT-]
+  
+  Raspberry pi:
+    type: simple
+    subtype: Module
+    pinlabels: [+5V, GND, USBIN]
+  
+  ESP32:
+    type: simple
+    subtype: Module
+    pinlabels: [USB]
+
+  HV Splice Point: 
+    type: simple
+    subtype: Splice
+    pinlabels: [+ve, -ve]
+
+  CAN Splice Point: 
+    type: simple
+    subtype: Splice
+    pinlabels: [CANL, CANH]
+
+  Headlight: 
+    type: simple
+    subtype: Lights
+    pinlabels: [LB, HB, GND]
+
+  Taillight: 
+    type: simple
+    subtype: Lights
+    pinlabels: [Low, BL, GND]
+
+  Left Indicator_Front: 
+    type: simple
+    subtype: Lights
+    pinlabels: [T1, Gnd]
+
+  Left Indicator_Back: 
+    type: simple
+    subtype: Lights
+    pinlabels: [T1, Gnd]
+
+  Right Indicator_Front: 
+    type: simple
+    subtype: Lights
+    pinlabels: [T1, Gnd]
+
+  Right Indicator_Back: 
+    type: simple
+    subtype: Lights
+    pinlabels: [T1, Gnd]
+
+  Headlight LB relay:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [Nopen, NC, V+, V-]
+  
+  Headlight HB relay:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [Nopen, NC, V+, V-]
+
+  Taillight relay:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [Nopen, NC, V+, V-]
+
+
+  Light HI_Lo Beam Switch:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [T1, T2, T3]
+
+  Indicator Switch: 
+    type: simple
+    subtype: Mechanical
+    pinlabels: [T1, T2, T3]
+
+  Headlight Fuse:
+    type: simple
+    subtype: Mechanical
+    pinlabels: [IN, OUT]
+  
+
+cables:
+
+  W3:
+    gauge: 16 mm2
+    length: 2
+    colors: [RD]
+    wirecount: 1
+  W4:
+    gauge: 16 mm2
+    length: 0.6
+    colors: [RD, BK, WH, BK, YE, BU, OG]
+    wirecount: 7
+  W5:
+    gauge: 16 mm2
+    length: 0.6
+    colors: [RD, RD, RD]
+    wirecount: 3
+  W6:
+    gauge: 16 mm2
+    length: 0.1
+    colors: [BU]
+    wirecount: 1 
+  W7:
+    gauge: 16 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1  
+  W8:
+    gauge: 4 mm2
+    length: 0.1
+    colors: [GN]
+    wirecount: 1  
+  W9:
+    gauge: 4 mm2
+    length: 0.1
+    colors: [RD]
+    wirecount: 1 
+  W10:
+    gauge: 4 mm2
+    length: 0.1
+    colors: [RD]
+    wirecount: 1
+  W11:
+    gauge: 1.5 mm2
+    length: 2
+    colors: [RD, BK]
+    wirecount: 2 
+  W12:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1    
+  W13:
+    gauge: 4 mm2
+    length: 1
+    colors: [BK]
+    wirecount: 1  
+  W14:
+    gauge: 4 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1 
+  W15:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [GN]
+    wirecount: 1   
+  W16:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [WHPK]
+    wirecount: 1 
+  W17:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W18:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W19:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [BK]
+    wirecount: 1
+  W20:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, YE, BU]
+    wirecount: 3
+  W21:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W22:
+    gauge: 0.75 mm2
+    length: 1
+    colors: [BK]
+    wirecount: 1
+  W23:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W24:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [OG]
+    wirecount: 1
+  W25:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [BN]
+    wirecount: 1
+  W26:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [WH]
+    wirecount: 1
+  W27:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W28:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [GY]
+    wirecount: 1
+  W29:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [TQ, OG]
+    wirecount: 2
+  W30:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [YE]
+    wirecount: 1
+  W31:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [BU]
+    wirecount: 1
+  W32:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [PK]
+    wirecount: 1
+  W33:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [PK]
+    wirecount: 1
+  W34:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [WH, BK]
+    wirecount: 2
+  W35:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [WHTQ, WHBK]
+    wirecount: 2
+  W36:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [WHRD, WHBU]
+    wirecount: 2
+  W37:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [BN]
+    wirecount: 1
+  W38:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W39:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [BN]
+    wirecount: 1
+  W40:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W41:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 2
+  W42:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 2
+  W43:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [OG]
+    wirecount: 1
+  W44:
+    gauge: 16 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 2
+  W45:
+    gauge: 16 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 2
+  W46:
+    gauge: 16 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 2
+  W47:
+    gauge: 16 mm2
+    length: 1
+    colors: [BK]
+    wirecount: 1
+  W48:
+    gauge: 16 mm2
+    length: 1
+    colors: [RD]
+    wirecount: 1
+  W49:
+    gauge: 16 mm2
+    length: 1
+    colors: [WH, BK]
+    wirecount: 2
+  W50:
+    gauge: 16 mm2
+    length: 1
+    colors: [WH, BK]
+    wirecount: 2
+  W51:
+    gauge: 16 mm2
+    length: 1
+    colors: [WH, BK]
+    wirecount: 2
+  W52:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+  W53:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+  W54:
+    gauge: 1.5 mm2
+    length: 1
+    cocolors: [RD, BK]
+    wirecount: 1
+  W55:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+  W56:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+  W57:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+  W58:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+  W59:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+  W60:
+    gauge: 1.5 mm2
+    length: 1
+    colors: [RD, BK]
+    wirecount: 1
+
+
+connections:
+  
+  -
+    - Motor controller: [3,19,1,2,16,17,18]
+    - W4: [1-7]
+    - Motor: [1-7]
+  -
+    - Motor controller: [24,25,26]
+    - W5: [1-3]
+    - Motor: [8-10]
+  -
+    - Contactor: [2]
+    - W6: [1]
+    - FuseHV1: [1]
+  -
+    - FuseHV1: [2]
+    - W7: [1]
+    - Motor controller: [27]
+  -
+    - Contactor: [1]
+    - W8: [1]
+    - Precharge Relay: [1]
+  -
+    - Precharge Relay: [2]
+    - W9: [1]
+    - Resistor: [1]
+  -
+    - Resistor: [2]
+    - W10: [1]
+    - FuseHV1: [1]
+  -
+    - HV Splice Point: [1,2]
+    - W11: [1,2]
+    - DC-DC converter: [1,2]  
+  -
+    - DC-DC converter: [3]
+    - W12: [1]
+    - Lock and Key: [1]
+  -
+    - Lock and Key: [2]
+    - W52: [1]
+    - Ksi relay: [1]
+  -
+    - Ksi relay: [2]
+    - W13: [1]
+    - DC-DC converter: [4]
+  -
+    - DC-DC converter: [3]
+    - W14: [1]
+    - Ksi relay: [3]
+  -
+    - Ksi relay: [4]
+    - W15: [1]
+    - Switch1_Precharge_Contactor: [2]
+  -
+    - DC-DC converter: [4]
+    - W16: [1]
+    - Precharge Relay: [4]
+  -  
+    - Switch1_Precharge_Contactor: [1]
+    - W17: [1]
+    - Precharge Relay: [3]
+  -
+    - Switch1_Precharge_Contactor: [3]
+    - W18: [1]
+    - Contactor: [3]
+  -
+    - DC-DC converter: [4]
+    - W19: [1]
+    - Contactor: [4]
+  -
+    - Motor controller: [5,12,19]                           
+    - W20: [1,2,3]
+    - Throttle: [1,2,3]
+  -
+    - Ksi relay: [4]
+    - W21: [1]
+    - Motor controller: [6] 
+  -
+    - DC-DC converter: [2]
+    - W22: [1]
+    - Motor controller: [23]
+  -
+    - Ksi relay: [4]
+    - W23: [1]
+    - Mode Switch: [3]
+  -
+    - Mode Switch: [3]
+    - W24: [1]
+    - Mode Switch: [4]
+  -
+    - Mode Switch: [1]
+    - W25: [1]
+    - Motor controller: [14]
+  -
+    - Mode Switch: [6]
+    - W26: [1]
+    - Motor controller: [20]
+  -
+    - Ksi relay: [4]
+    - W27: [1]
+    - Switch_Reverse: [1]
+  -
+    - Switch_Reverse: [2]
+    - W28: [1]
+    - Motor controller: [21]
+  -
+    - Left Brake: [1,2]
+    - W29: [1,2]
+    - Right Brake: [1,2]
+  -
+    - Switch1_Precharge_Contactor: [3]
+    - W30: [1]
+    - Left Brake: [1]
+  -
+    - Left Brake: [2]
+    - W31: [1]
+    - Motor controller: [22]
+  -
+    - Left Brake: [2]
+    - W32: [1]
+    - Switch_Park: [1]
+  - 
+    - Switch_Park: [2]
+    - W33: [1]
+    - Motor controller: [4]
+  - 
+    - Motor controller: [7,8]  
+    - W34: [1,2]
+    - VCU: [4,5]
+  -
+    - CAN Splice Point: [1,2]
+    - W35: [1,2]
+    - Motor controller: [7,8]
+  - 
+    - DC-DC converter: [3]
+    - W36: [1]
+    - Horn Switch: [1]
+  -
+    - DC-DC converter: [4]
+    - W36: [2]
+    - Horn Relay: [4]
+  -
+    - Horn Switch: [2]
+    - W37: [1] 
+    - Horn Relay: [3]
+  - 
+    - DC-DC converter: [3]
+    - W38: [1]
+    - Horn Relay: [1]
+  -
+    - Horn Relay: [2]
+    - W39: [1]
+    - Horn: [1]
+  -
+    - Horn Relay: [4]
+    - W40: [1]
+    - Horn: [2]
+  - 
+    - DC-DC converter: [3,4]
+    - W41: [1,2]
+    - 12V to 5V converter Board: [1,2]
+  -
+    - 12V to 5V converter Board: [1,2]
+    - W42: [1,2]
+    - Raspberry pi: [1,2]
+  - 
+    - Raspberry pi: [3]
+    - W43: [1]
+    - ESP32: [1]
+  -
+    - Battery1: [1,2]
+    - W44: [1,2]
+    - HV Splice Point: [1,2]
+  -
+    - Battery2: [1,2]
+    - W45: [1,2]
+    - HV Splice Point: [1,2]
+  -
+    - Battery3: [1,2]
+    - W46: [1,2]
+    - HV Splice Point: [1,2]
+  -
+    - HV Splice Point: [2]
+    - W47: [1]
+    - Motor controller: [28]
+  -
+    - HV Splice Point: [1]
+    - W48: [1]
+    - Contactor: [1]
+  - 
+    - Battery1: [3,4]
+    - W49: [1,2]
+    - CAN Splice Point: [1,2]
+  -
+    - Battery2: [3,4]
+    - W50: [1,2]
+    - CAN Splice Point: [1,2]
+  -
+    - Battery3: [3,4]
+    - W51: [1,2]
+    - CAN Splice Point: [1,2]
+  -
+    - Ksi relay: [4]
+    - W52: [1]
+    - Headlight HB relay: [1]
+  -
+    - Ksi relay: [4]
+    - W53: [1]
+    - Headlight LB relay: [1]
+  -
+    - Ksi relay: [4]
+    - W54: [1]
+    - Light HI_Lo Beam Switch: [2]
+  - 
+    - Light HI_Lo Beam Switch: [1]
+    - W55: [1]
+    - Headlight HB relay: [3]
+  - 
+    - Light HI_Lo Beam Switch: [3]
+    - W56: [1]
+    - Headlight LB relay: [3]
+  -
+    - Headlight HB relay: [2]
+    - W57: [1]
+    - Headlight: [1]
+  - 
+    - Headlight LB relay: [2]
+    - W58: [1]
+    - Headlight: [2]
+  - 
+    - Left Brake: [2]
+    - W59: [1]
+    - Taillight: [1]
+  - 
+    - Ksi relay: [4]
+    - W60: [1]
+    - Taillight: [2]
